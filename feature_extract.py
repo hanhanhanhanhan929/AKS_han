@@ -22,7 +22,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Extract Video Feature')
 
     parser.add_argument('--dataset_name', type=str, default='longvideobench', help='support longvideobench and videomme')
-    parser.add_argument('--dataset_path', type=str, default='./datasets/longvideobench',help='your path of the dataset')
+    parser.add_argument('--dataset_path', type=str, default='/data/hanrui/data/LongVideoBench/',help='your path of the dataset')
     parser.add_argument('--extract_feature_model', type=str,default='blip', help='blip/clip/sevila')
     parser.add_argument('--output_file', type=str,default='./outscores',help='path of output scores and frames')
     parser.add_argument('--device', type=str,default='cuda')
@@ -32,8 +32,8 @@ def parse_arguments():
 
 def main(args):
     if args.dataset_name =="longvideobench":
-       label_path = os.path.join(args.dataset_path,'lvb_val.json')
-       video_path = os.path.join(args.dataset_path,'videos')
+       label_path = '/data/hanrui/AKS-main/lvb_val.json'
+       video_path = '/data/hanrui/data'
     elif args.dataset_name =="videomme":
        label_path = os.path.join(args.dataset_path,'videomme.json')
        video_path = os.path.join(args.dataset_path,'data')
